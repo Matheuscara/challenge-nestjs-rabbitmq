@@ -9,7 +9,7 @@ export const rabbitMqConfig = {
     prefetchCount: 5,
     connectionInitOptions: {
       wait: true,
-      timeout: 5000,
+      timeout: 60000,
       reject: true,
     },
     enableControllerDiscovery: true,
