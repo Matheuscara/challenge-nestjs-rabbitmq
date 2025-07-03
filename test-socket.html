@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Teste WS</title>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  </head>
+  <body>
+    <h1>WebSocket Test</h1>
+    <ul id="events"></ul>
+    <script>
+      const socket = io("http://localhost:3000");
+      const list = document.getElementById("events");
+
+      socket.on("connect", () => {
+        const li = document.createElement("li");
+        li.textContent = `Conectado com id ${socket.id}`;
+        list.appendChild(li);
+      });
+
+      socket.on("notificationStatus", ({ mensagemId, status }) => {
+        const li = document.createElement("li");
+        li.textContent = `🚀 ${mensagemId} → ${status}`;
+        list.appendChild(li);
+      });
+
+      socket.on("disconnect", () => {
+        const li = document.createElement("li");
+        li.textContent = "Desconectado";
+        list.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
