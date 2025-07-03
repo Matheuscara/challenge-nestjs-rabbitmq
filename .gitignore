@@ -1,12 +1,15 @@
-
+# Dependências
 /node_modules/
 
+# Build output
 /dist/
 /out-tsc/
 /tmp/
 /coverage/
 
+# Ambiente
 .env
+.env.local
 
 # Logs
 *.log
